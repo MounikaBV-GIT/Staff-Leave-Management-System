@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <h2>Staff leave requests </h2>
+    <table border="2px">
+        <tr>
+            <th>Staff Name</th>
+            <th>Leave type</th>
+            <th>Start date</th>
+            <th>end date</th>
+            <th>Reason</th>
+            <th>status</th>
+            <th>Action</th>
+        </tr>
+        {% for i in leaves %}
+        <tr>
+            <td>{{i.user.username}}</td>
+            <td>{{i.leave_type}}</td>
+            <td>{{i.start_date}}</td>
+            <td>{{i.end_date}}</td>
+            <td>{{i.reason}}</td>
+            <td
+                style="color: {% if i.status|lower == 'approved' %} green{% elif i.status|lower == 'rejected' or i.status|lower == 'reject' %}red{% else %}orange{% endif %}; font-weight: bold;">
+                {{ i.status|title }}
+            </td>
+
+            <td>
+                {% if i.status == 'pending' %}
+                <a style="color: green;" href="{% url 'approve_leave' i.id %}">Approve</a>
+                <a style="color: red;" href="{% url 'reject_leave' i.id %}">Reject</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td>no leave request found</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'admin_dashboard' %}">back to dashboard</a>
+</body>
+
+</html>

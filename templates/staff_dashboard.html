@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a>SLMS-Staff</a>
+        <a href="{% url 'logout'%}">Logout</a>
+    </nav>
+    <center>
+        <h1>Welcome {{request.user.username}}</h1>
+        <h5>Apply Leave</h5>
+        <p> submit a new leave request</p>
+        <a href="{% url 'apply_leave' %}">Apply</a>
+        <h5>My Leave Status</h5>
+        <p>View your leave request</p>
+        <a href="{% url 'my_leave' %}">View</a>
+    </center>
+</body>
+</html>

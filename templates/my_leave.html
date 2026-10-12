@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>My Leave Applications</h2>
+    <table border="2px">
+        <tr style="color: white;background-color: blueviolet;">
+            <td>Leave Type</td>
+            <td>start date</td>
+            <td>end date</td>
+            <td>Reason</td>
+            <td>status</td>
+        </tr>
+        {% for i in leaves %}
+        <tr>
+            <td>{{i.leave_type}}</td>
+            <td>{{i.start_date}}</td>
+            <td>{{i.end_date}}</td>
+            <td>{{i.reason}}</td>
+            <td>{{i.status}}</td>
+        </tr>
+        <!-- <tr>
+            <td>No leave applications are found</td>
+        </tr> -->
+        {% endfor %}
+    </table>
+    <a href="{% url 'staff_dashboard' %}">Back to dashboard</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2 style="margin-left: 400px; color: blueviolet;">Apply leave</h2>
+    <form style="color: black;" action="" method="post">
+        {% csrf_token %}
+        <label style="color: blue;" for="">leave type</label>
+        <select name="leave_type" required >
+            <option value="">Select</option>
+            <option>casual leave</option>
+            <option>sick leave</option>
+            <option>Emergency leave</option>
+        </select>
+        <label style="color: blue;" for="">Start date</label>
+        <input type="date" name="start" required>
+        <label style="color: blue;" for="">End date</label>
+        <input type="date" name="end" required>
+        <label style="color: blue;" for="">Reason</label>
+        <textarea name="reason" required></textarea>
+        <button type="submit">submit leave</button>
+    </form>
+    <a style="margin-left: 400px;" href="{% url 'staff_dashboard' %}">back to staff dashboard</a>
+
+</body>
+</html>

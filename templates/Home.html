@@ -1,0 +1,46 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div class="content">
+        <h1>SLMS</h1>
+        <p>Staff Leave Management Sysytem</p>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+    </div>
+    <br><br><br>
+    <footer>
+        @ copyright 2026 Dhee Coding Lab (DCL) | All Rights Reserved
+    </footer>
+</body>
+</html> -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Leave Management System</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="content">
+        <h1>SLMS</h1>
+        <p>Staff Leave Management System</p>
+
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+    </div>
+
+    <footer>
+        © 2026 Dhee Coding Lab (DCL) | All Rights Reserved
+    </footer>
+</body>
+</html>
